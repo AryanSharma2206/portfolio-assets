@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aryan Sharma | DevOps &amp; Cloud Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--beige:#EFE6D6;--cream:#F8F2E6;--sand:#D8C6A6;--tan:#B89B72;--brown:#7A5336;--deep:#3E2716;--ink:#2B1B10;
+--serif:'Fraunces',Georgia,serif;--sans:'Work Sans',system-ui,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:var(--sans);background:var(--beige);color:var(--ink);line-height:1.65;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tan);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--tan);z-index:20}
+nav{position:sticky;top:0;z-index:50;background:#3E2716;color:var(--cream);box-shadow:0 2px 12px rgba(0,0,0,.3)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav b{font-family:var(--serif);font-size:1.2rem}
+nav ul{display:flex;gap:24px;list-style:none;font-size:.92rem}
+nav li a{text-decoration:none;position:relative;padding:4px 0}
+nav li a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--sand);transition:width .3s}
+nav li a:hover:after{width:100%}
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;gap:8px;align-items:center;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:2px solid var(--sand);transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn:before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover:before{left:130%}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(0,0,0,.28)}
+.btn:active{transform:translateY(-1px) scale(.97)}
+.btn i{font-style:normal;transition:transform .25s}
+.btn:hover i{transform:translateX(6px)}
+.btn.fill{background:var(--sand);color:var(--deep)}
+.btn.line{color:var(--cream)}
+.btn.line:hover{background:var(--sand);color:var(--deep)}
+.btn.dark{background:var(--deep);color:var(--cream);border-color:var(--deep)}
+/* hero */
+.hero{background:radial-gradient(circle at 75% 60%,#6a4429 0,var(--deep) 60%);color:var(--cream);overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:end;min-height:600px}
+.hero .txt{padding:70px 0;align-self:center}
+.hi{display:inline-block;background:rgba(216,198,166,.15);border:1px solid var(--sand);border-radius:999px;padding:5px 16px;font-size:.9rem;margin-bottom:18px;color:var(--sand)}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.4rem,5.4vw,4.1rem);line-height:1.07}
+.type{font-family:var(--serif);font-size:1.45rem;color:var(--sand);margin:16px 0 18px;min-height:2.2rem}
+.type:after{content:"|";margin-left:3px;animation:blink 1s steps(1) infinite}
+.hero p.intro{max-width:50ch;color:#E6DAC4}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.photo{position:relative;align-self:center;justify-self:center;width:min(100%,400px);padding:40px 0}
+.photo img{position:relative;width:100%;display:block;border-radius:16px;animation:float 6s ease-in-out infinite}
+.photo .ini{display:none;position:relative;font-family:var(--serif);font-size:9rem;color:var(--sand);text-align:center;padding:60px 0}
+.in{opacity:0;transform:translateY(24px);animation:up .4s forwards}
+.d1{animation-delay:0s}.d2{animation-delay:.08s}.d3{animation-delay:.16s}.d4{animation-delay:.24s}.d5{animation-delay:.32s}
+/* sections */
+section{padding:78px 0}
+section.alt{background:var(--cream)}
+h2{font-family:var(--serif);font-size:2.1rem;color:var(--deep);margin-bottom:8px}
+h2:after{content:"";display:block;width:56px;height:4px;background:var(--tan);margin-top:8px;border-radius:2px;transition:width .4s .1s}
+.show h2:after,h2.show:after{width:110px}
+.lead{color:var(--brown);margin-bottom:36px;max-width:60ch}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .4s,transform .4s}
+.rv.show{opacity:1;transform:none}
+.rl{opacity:0;transform:translateX(-24px);transition:opacity .4s,transform .4s}
+.rl.show{opacity:1;transform:none}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:-50px;position:relative;z-index:2}
+.stat{background:var(--cream);border-radius:16px;padding:22px;text-align:center;box-shadow:0 12px 28px rgba(62,39,22,.18);transition:transform .3s}
+.stat:hover{transform:translateY(-8px)}
+.stat b{display:block;font-family:var(--serif);font-size:2.5rem;color:var(--brown)}
+.stat span{font-size:.9rem}
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.about p+p{margin-top:14px}
+.facts{background:var(--cream);border-left:5px solid var(--brown);padding:20px 24px;border-radius:0 14px 14px 0;list-style:none}
+.facts li{padding:7px 0;border-bottom:1px solid var(--sand)}
+.facts li:last-child{border:0}
+.facts span{display:block;font-size:.8rem;color:var(--brown)}
+/* skills */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.bar{margin-bottom:18px}
+.bar div.l{display:flex;justify-content:space-between;font-weight:500;font-size:.95rem;margin-bottom:5px}
+.track{height:12px;background:var(--sand);border-radius:99px;overflow:hidden}
+.fillbar{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--brown),var(--tan));transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.donuts{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.donut{text-align:center}
+.ring{width:118px;height:118px;margin:0 auto 8px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:10}
+.ring .bg{stroke:var(--sand)}
+.ring .fg{stroke:var(--brown);stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:314;transition:stroke-dashoffset .9s ease}
+.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;color:var(--deep)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.tags span{background:var(--deep);color:var(--cream);font-size:.84rem;padding:5px 14px;border-radius:999px;transition:transform .2s,background .2s}
+.tags span:hover{transform:translateY(-4px) rotate(-2deg);background:var(--brown)}
+.note{font-size:.8rem;color:var(--brown);margin-top:10px}
+.plat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:40px}
+.pl{background:var(--beige);border:1px solid var(--sand);border-top:5px solid var(--brown);border-radius:14px;padding:20px;transition:transform .3s,box-shadow .3s}
+.pl:hover{transform:translateY(-8px);box-shadow:0 14px 28px rgba(62,39,22,.2)}
+.pl h3{font-family:var(--serif);color:var(--deep);font-size:1.15rem;margin-bottom:6px}
+.pl p{font-size:.9rem}
+.net{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.nc{background:var(--cream);border:1px solid var(--sand);border-radius:16px;padding:22px;transition:transform .3s,background .3s,color .3s}
+.nc:hover{transform:translateY(-8px);background:var(--deep);color:var(--cream)}
+.nc:hover h3{color:var(--sand)}
+.nc h3{font-family:var(--serif);color:var(--deep);font-size:1.15rem;margin-bottom:8px}
+.nc ul{list-style:none}
+.nc li{padding:3px 0;font-size:.93rem}
+.nc li:before{content:"\203A  ";color:var(--tan);font-weight:700}
+.arch{margin-top:34px;background:var(--deep);color:var(--cream);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:center}
+.arch h3{font-family:var(--serif);color:var(--sand);font-size:1.3rem;margin-bottom:8px}
+.arch svg{width:100%;height:auto}
+.arch .bx{fill:var(--brown);stroke:var(--sand);stroke-width:1.5;transition:fill .3s}
+.arch g:hover .bx{fill:var(--tan)}
+.arch text{fill:var(--cream);font:600 12px var(--sans);text-anchor:middle}
+.arch .ln{stroke:var(--sand);stroke-width:2;stroke-dasharray:6 6;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-12}}
+/* pipeline */
+.pipe{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.node{flex:1;min-width:110px;background:var(--deep);color:var(--cream);text-align:center;padding:18px 8px;border-radius:14px;font-family:var(--serif);font-weight:600;transition:transform .3s,background .3s}
+.node small{display:block;font-family:var(--sans);font-weight:400;font-size:.76rem;color:var(--sand)}
+.node:hover{transform:translateY(-8px) scale(1.05);background:var(--brown)}
+.arrow{width:30px;height:4px;background:repeating-linear-gradient(90deg,var(--tan) 0 6px,transparent 6px 12px);background-size:24px 4px;animation:flow 1s linear infinite}
+/* timeline */
+.tl{border-left:3px solid var(--tan);margin-left:8px}
+.job{position:relative;padding:0 0 38px 32px}
+.job:before{content:"";position:absolute;left:-11px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--brown);border:3px solid var(--beige);animation:pulse2 2.4s infinite}
+.alt .job:before{border-color:var(--cream)}
+.job h3{font-family:var(--serif);font-size:1.25rem;color:var(--deep)}
+.job .meta{color:var(--brown);font-size:.9rem;margin-bottom:8px}
+.job ul{padding-left:18px;max-width:75ch}
+.job li{margin-bottom:5px}
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.card{background:var(--cream);border-radius:18px;overflow:hidden;border:1px solid var(--sand);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-10px);box-shadow:0 18px 34px rgba(62,39,22,.25)}
+.card .img{height:150px;background:linear-gradient(135deg,var(--brown),var(--deep));display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--sand);font-size:1.1rem;padding:12px;text-align:center;overflow:hidden}
+.card .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .img img{transform:scale(1.1)}
+.card .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-family:var(--serif);font-size:1.15rem;color:var(--deep)}
+.card p{font-size:.93rem;flex:1}
+.links{display:flex;gap:14px;font-weight:600;font-size:.9rem}
+.links a{color:var(--brown);text-decoration:none;position:relative}
+.links a:after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;background:var(--brown);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:hover:after{transform:scaleX(1)}
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;list-style:none}
+.certs li{background:var(--cream);border:1px solid var(--sand);border-left:5px solid var(--brown);border-radius:10px;padding:12px 16px;font-size:.94rem;transition:transform .25s}
+.certs li:hover{transform:translateX(8px)}
+.certs b{display:block;color:var(--deep)}
+/* contact */
+.contact{background:var(--deep);color:var(--cream);text-align:center}
+.contact h2{color:var(--cream)}
+.contact h2:after{margin:8px auto 0}
+.contact .lead{color:var(--sand);margin-inline:auto}
+.contact .btns{justify-content:center}
+footer{background:var(--ink);color:var(--sand);text-align:center;padding:18px;font-size:.85rem}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes blink{50%{opacity:0}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes pulse{50%{opacity:.55;transform:translateX(-50%) scale(1.08)}}
+@keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(122,83,54,.5)}70%,100%{box-shadow:0 0 0 12px transparent}}
+@keyframes flow{to{background-position:24px 0}}
+@media(max-width:800px){nav ul{display:none}.hero .wrap,.about,.charts,.arch{grid-template-columns:1fr}.photo{order:-1;width:280px;margin-top:30px}.hero .txt{padding:10px 0 50px}.hero .wrap{min-height:0}.arrow{display:none}section{padding:56px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.in,.rv,.rl{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><div class="wrap"><b>Aryan Sharma</b>
+<ul><li><a href="#top">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#network">Networking</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+ <div class="txt">
+  <span class="hi in d1">Hello, I'm Aryan</span>
+  <h1 class="in d2">I build cloud systems that ship fast and stay up.</h1>
+  <div class="type in d3" id="type"></div>
+  <p class="intro in d4">DevOps and cloud engineer from Jaipur. I automate infrastructure with Terraform, deliver code through CI/CD, and run containers on Kubernetes with monitoring I can trust.</p>
+  <div class="btns in d5">
+   <!-- EDIT: put your resume link in href -->
+   <a class="btn fill" href="https://github.com/AryanSharma2206/portfolio-assets/raw/main/resume.pdf" target="_blank" rel="noopener">Download resume <i>&darr;</i></a>
+   <a class="btn line" href="#projects">See my work <i>&rarr;</i></a>
+   <a class="btn line" href="#contact">Contact me <i>&rarr;</i></a>
+  </div>
+ </div>
+ <!-- EDIT: your photo link (photo.png in portfolio-assets repo) -->
+ <div class="photo in d3">
+  <img src="https://raw.githubusercontent.com/AryanSharma2206/portfolio-assets/main/photo.png" alt="Aryan Sharma" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <div class="ini">AS</div>
+ </div>
+</div></header>
+
+<div class="wrap stats rv">
+ <div class="stat"><b data-n="3">0</b><span>Internships</span></div>
+ <div class="stat"><b data-n="15" data-s="+">0</b><span>Certifications</span></div>
+ <div class="stat"><b data-n="10" data-s="+">0</b><span>Projects</span></div>
+ <div class="stat"><b data-n="30" data-s="+">0</b><span>Tools and technologies</span></div>
+</div>
+
+<section id="about"><div class="wrap">
+ <h2 class="rv">About me</h2>
+ <p class="lead rv">Cloud, containers and automation, from first commit to production.</p>
+ <div class="about">
+  <div class="rl">
+   <!-- EDIT: your bio -->
+   <p>I'm a B.Tech student in Computer Science (AI &amp; Data Science) at Poornima University, Jaipur. I enjoy turning manual, error-prone work into automated pipelines that anyone on a team can rely on.</p>
+   <p>At Dotsquares I provisioned AWS infrastructure with Terraform, shipped apps through GitHub Actions and operated services on Kubernetes (EKS). I'm now working with New Zealand Cricket on Power BI reporting and deployment planning.</p>
+  </div>
+  <ul class="facts rv">
+   <li><span>Location</span>Jaipur, India</li>
+   <li><span>Education</span>B.Tech CSE (AI &amp; Data Science), 2023 to 2027</li>
+   <li><span>Focus</span>AWS, Terraform, Kubernetes, CI/CD</li>
+   <li><span>Currently</span>International virtual intern, New Zealand Cricket</li>
+  </ul>
+ </div>
+</div></section>
+
+<section id="skills" class="alt"><div class="wrap">
+ <h2 class="rv">Skills</h2>
+ <p class="lead rv">A snapshot of what I work with most.</p>
+ <div class="plat rv">
+  <div class="pl"><h3>AWS</h3><p>EC2, EKS, S3 and VPC. Provisioned with Terraform at Dotsquares.</p></div>
+  <div class="pl"><h3>Microsoft Azure</h3><p>Hands-on cloud sandbox labs.</p></div>
+  <div class="pl"><h3>Google Cloud</h3><p>Google Cloud Launchpad 2026 and hands-on sandbox labs.</p></div>
+  <div class="pl"><h3>Oracle Cloud</h3><p>Oracle Cloud 2025 Certified DevOps Professional.</p></div>
+ </div>
+ <div class="charts">
+  <div class="rl" id="bars">
+   <!-- EDIT: change data-v (0 to 100) to adjust each bar -->
+   <div class="bar"><div class="l"><span>Cloud (AWS, Azure, GCP, Oracle)</span><span>85%</span></div><div class="track"><div class="fillbar" data-v="85"></div></div></div>
+   <div class="bar"><div class="l"><span>Terraform</span><span>80%</span></div><div class="track"><div class="fillbar" data-v="80"></div></div></div>
+   <div class="bar"><div class="l"><span>Docker &amp; Kubernetes</span><span>80%</span></div><div class="track"><div class="fillbar" data-v="80"></div></div></div>
+   <div class="bar"><div class="l"><span>CI/CD (GitHub Actions)</span><span>85%</span></div><div class="track"><div class="fillbar" data-v="85"></div></div></div>
+   <div class="bar"><div class="l"><span>Monitoring (Prometheus, Grafana)</span><span>75%</span></div><div class="track"><div class="fillbar" data-v="75"></div></div></div>
+   <div class="bar"><div class="l"><span>Python &amp; Bash</span><span>70%</span></div><div class="track"><div class="fillbar" data-v="70"></div></div></div>
+  </div>
+  <div class="donuts rv" id="rings">
+   <div class="donut"><div class="ring"><svg width="118" height="118" viewBox="0 0 118 118"><circle class="bg" cx="59" cy="59" r="50"/><circle class="fg" cx="59" cy="59" r="50" data-v="85"/></svg><b>85%</b></div>Cloud</div>
+   <div class="donut"><div class="ring"><svg width="118" height="118" viewBox="0 0 118 118"><circle class="bg" cx="59" cy="59" r="50"/><circle class="fg" cx="59" cy="59" r="50" data-v="80"/></svg><b>80%</b></div>Automation</div>
+   <div class="donut"><div class="ring"><svg width="118" height="118" viewBox="0 0 118 118"><circle class="bg" cx="59" cy="59" r="50"/><circle class="fg" cx="59" cy="59" r="50" data-v="75"/></svg><b>75%</b></div>Observability</div>
+   <div class="donut"><div class="ring"><svg width="118" height="118" viewBox="0 0 118 118"><circle class="bg" cx="59" cy="59" r="50"/><circle class="fg" cx="59" cy="59" r="50" data-v="70"/></svg><b>70%</b></div>Data &amp; BI</div>
+  </div>
+ </div>
+ <p class="note rv">Bars show my own estimate of comfort level, not formal scores.</p>
+ <div class="tags rv">
+  <span>AWS</span><span>Azure</span><span>Google Cloud</span><span>Oracle Cloud</span><span>Terraform</span><span>Ansible</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>Jenkins</span><span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span><span>Linux</span><span>Bash</span><span>Python</span><span>Nginx</span><span>Apache</span><span>Certbot</span><span>MySQL</span><span>Power BI</span><span>draw.io</span>
+ </div>
+</div></section>
+
+<section id="network"><div class="wrap">
+ <h2 class="rv">Networking &amp; Architecture</h2>
+ <p class="lead rv">Secure, well-designed foundations for cloud workloads.</p>
+ <div class="net">
+  <div class="nc rv"><h3>Core networking</h3><ul><li>TCP/IP</li><li>DNS</li><li>HTTP / HTTPS</li><li>Subnetting</li></ul></div>
+  <div class="nc rv"><h3>Cloud networking</h3><ul><li>AWS VPC design</li><li>VPC peering</li><li>Firewalls</li></ul></div>
+  <div class="nc rv"><h3>Security</h3><ul><li>SSL/TLS with Certbot</li><li>Server hardening</li><li>Reverse proxy (Apache)</li></ul></div>
+  <div class="nc rv"><h3>Web servers</h3><ul><li>Apache2</li><li>Nginx</li><li>WordPress, Virtualmin</li></ul></div>
+ </div>
+ <div class="arch rv">
+  <div><h3>Architecture design</h3><p>I design AWS and DevOps architecture diagrams in draw.io, covering VPCs, subnets, load balancing, Kubernetes clusters and monitoring for scalable environments.</p></div>
+  <svg viewBox="0 0 420 200" role="img" aria-label="Simple AWS architecture: users, load balancer, EKS cluster and monitoring inside a VPC">
+   <rect x="95" y="10" width="320" height="180" rx="12" fill="none" stroke="#D8C6A6" stroke-width="1.5" stroke-dasharray="4 4"/>
+   <text x="140" y="28">VPC</text>
+   <g><rect class="bx" x="5" y="80" width="75" height="40" rx="8"/><text x="42" y="105">Users</text></g>
+   <g><rect class="bx" x="115" y="80" width="85" height="40" rx="8"/><text x="157" y="105">Load Balancer</text></g>
+   <g><rect class="bx" x="240" y="40" width="85" height="40" rx="8"/><text x="282" y="65">EKS Pods</text></g>
+   <g><rect class="bx" x="240" y="125" width="85" height="40" rx="8"/><text x="282" y="150">S3 / DB</text></g>
+   <g><rect class="bx" x="340" y="80" width="68" height="40" rx="8"/><text x="374" y="105">Grafana</text></g>
+   <line class="ln" x1="80" y1="100" x2="115" y2="100"/><line class="ln" x1="200" y1="95" x2="240" y2="62"/><line class="ln" x1="200" y1="105" x2="240" y2="143"/><line class="ln" x1="325" y1="62" x2="345" y2="85"/>
+  </svg>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2 class="rv">How I ship</h2>
+ <p class="lead rv">The delivery flow I build and run.</p>
+ <div class="pipe rv">
+  <div class="node">Code<small>Git, GitHub</small></div><div class="arrow"></div>
+  <div class="node">Build<small>Docker</small></div><div class="arrow"></div>
+  <div class="node">Provision<small>Terraform</small></div><div class="arrow"></div>
+  <div class="node">Deploy<small>EKS, Helm</small></div><div class="arrow"></div>
+  <div class="node">Monitor<small>Prometheus, Grafana</small></div>
+ </div>
+</div></section>
+
+<section id="experience" class="alt"><div class="wrap">
+ <h2 class="rv">Experience</h2>
+ <p class="lead rv">Internships across DevOps, data and analytics.</p>
+ <div class="tl">
+  <div class="job rl"><h3>International Virtual Intern, New Zealand Cricket</h3><div class="meta">Education New Zealand | Remote | Sep 2026 to present</div>
+   <ul><li>Selected for a real-world business analytics engagement with New Zealand Cricket.</li><li>Designed Power BI reports that turn business requirements into stakeholder-focused insights.</li><li>Owned deployment planning: data connectivity, scalability and transition to the client environment.</li><li>Worked with overseas stakeholders through regular meetings and feedback cycles.</li></ul></div>
+  <div class="job rl"><h3>AI/ML Intern, Data Ingenious Global Ltd.</h3><div class="meta">Jaipur, India | May 2026 to Jul 2026</div>
+   <ul><li>Cleaned and organized tabular datasets with Python and Pandas, including null handling, filtering and sorting.</li><li>Wrote Python utilities that automate reading, formatting and exporting structured data.</li><li>Managed version control on GitHub with clean commits and repository documentation.</li></ul></div>
+  <div class="job rl"><h3>DevOps Intern, Dotsquares</h3><div class="meta">Jaipur, India | May 2025 to Jun 2025</div>
+   <ul><li>Provisioned AWS infrastructure (EC2, EKS) with Terraform, cutting manual configuration and improving consistency.</li><li>Built CI/CD pipelines with GitHub Actions and Docker for faster, more reliable releases.</li><li>Deployed and operated containerized services on Kubernetes (EKS).</li><li>Set up Prometheus and Grafana monitoring and alerting to speed up incident detection.</li><li>Configured Apache and SSL (Certbot) on multiple Ubuntu servers.</li></ul></div>
+ </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+ <h2 class="rv">Projects</h2>
+ <p class="lead rv">Hands-on DevOps and cloud work.</p>
+ <div class="projects">
+  <!-- ============ PROJECTS SECTION: EDIT HERE ============
+ To ADD a project: copy one whole <div class="card rv"> ... </div> block below,
+ paste it right after the last card, then change 3 things:
+   1) the name inside <div class="img">  (shows on the brown header)
+   2) the title in <h3> and the description in <p>
+   3) the GitHub link in href
+ To REMOVE a project: delete its whole <div class="card rv"> ... </div> block.
+ Also update the "Projects" number in the stats row near the top (data-n).
+ ====================================================== -->
+  <div class="card rv"><div class="img">CI/CD Pipeline</div><div class="body"><h3>CI/CD Pipeline Automation</h3><p>Infrastructure provisioning and deployment workflows automated with Terraform and GitHub Actions.</p><div class="links"><a href="https://github.com/AryanSharma2206/website-CI-CD-terraform" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">AWS EKS</div><div class="body"><h3>Kubernetes Hosting on EKS</h3><p>A containerized application hosted on EKS with Helm charts and a GitHub Actions CI/CD pipeline.</p><div class="links"><a href="https://github.com/AryanSharma2206/AWS-EKS-Hosted-website" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">Prometheus + Grafana</div><div class="body"><h3>Monitoring Stack Setup</h3><p>Monitoring and alerting for Linux servers and cloud workloads using Prometheus and Grafana.</p><div class="links"><a href="https://github.com/AryanSharma2206/Prometheus-Grafana-System-Monitoring" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">AWS Architecture</div><div class="body"><h3>Architecture Diagrams</h3><p>Detailed diagrams for scalable AWS environments, designed in draw.io.</p><div class="links"><a href="https://github.com/AryanSharma2206/AWS-Articture-Digram-Hands-on" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">Text Analytics</div><div class="body"><h3>Text Analytics Platform</h3><p>A platform for processing and analyzing text data.</p><div class="links"><a href="https://github.com/AryanSharma2206/text-analytics-platform" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">SSL / TLS</div><div class="body"><h3>SSL Certificate Setup</h3><p>Securing websites with SSL/TLS certificates using Certbot on Linux servers.</p><div class="links"><a href="https://github.com/AryanSharma2206/SSL-Certificate-Setup" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">LAMP Stack</div><div class="body"><h3>LAMP Project Setup</h3><p>A web application environment built on Linux, Apache, MySQL and PHP.</p><div class="links"><a href="https://github.com/AryanSharma2206/LAMP-Project-Setup" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">Linux Cheat Sheet</div><div class="body"><h3>Linux Cheat Sheet App</h3><p>A quick-reference app for essential Linux commands.</p><div class="links"><a href="https://github.com/AryanSharma2206/linux-cheat-sheet-app" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">Cloud Custodian</div><div class="body"><h3>Cloud Custodian Project</h3><p>Cloud governance and resource policy automation with Cloud Custodian.</p><div class="links"><a href="https://github.com/AryanSharma2206/Cloud-custodian-project" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">Mass Emailing</div><div class="body"><h3>Mass Emailing System</h3><p>A system for sending emails to many recipients at once.</p><div class="links"><a href="https://github.com/AryanSharma2206/Mass-Emailing-System" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+  <div class="card rv"><div class="img">Ansible</div><div class="body"><h3>Ansible Worker Controller</h3><p>Ansible setup where a controller node configures and manages worker nodes.</p><div class="links"><a href="https://github.com/AryanSharma2206/Ansible-worker-controller" target="_blank" rel="noopener">Code on GitHub</a></div></div></div>
+ </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+ <h2 class="rv">Certifications</h2>
+ <p class="lead rv">Credentials and training, all in one repository.</p>
+ <ul class="certs">
+  <li class="rv"><b>Oracle Cloud 2025 Certified DevOps Professional</b>Oracle</li>
+  <li class="rv"><b>Google Cloud Launchpad 2026</b>Google Cloud</li>
+  <li class="rv"><b>AWS Cloud Practitioner Training</b>Udemy</li>
+  <li class="rv"><b>Docker &amp; Kubernetes Fundamentals</b>Udemy</li>
+  <li class="rv"><b>Python for DevOps and Automation</b>Udemy</li>
+  <li class="rv"><b>Cloud Observability &amp; Operations</b>LinkedIn Learning</li>
+  <li class="rv"><b>Prometheus and Grafana</b>LinkedIn Learning</li>
+  <li class="rv"><b>AWS: Monitoring, Logging, and Remediation</b>LinkedIn Learning</li>
+  <li class="rv"><b>Cloud Architecture: Design Decisions</b>LinkedIn Learning</li>
+  <li class="rv"><b>Power BI</b>LinkedIn Learning</li>
+ </ul>
+ <div class="btns rv"><a class="btn dark" href="https://github.com/AryanSharma2206/Certificates_achieved-" target="_blank" rel="noopener">View all certificates <i>&rarr;</i></a></div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+ <h2 class="rv">Let's build something</h2>
+ <p class="lead rv">Open to DevOps and cloud roles, internships and collaborations.</p>
+ <div class="btns rv">
+  <a class="btn fill" href="mailto:aryansharma995000@gmail.com" target="_blank">Email me <i>&rarr;</i></a>
+  <a class="btn line" href="https://www.linkedin.com/in/aryan-sharma-a2a240353" target="_blank" rel="noopener">LinkedIn <i>&rarr;</i></a>
+  <a class="btn line" href="https://github.com/AryanSharma2206" target="_blank" rel="noopener">GitHub <i>&rarr;</i></a>
+  <a class="btn line" href="tel:+917014882471">Call <i>&rarr;</i></a>
+ </div>
+</div></section>
+<footer>&copy; 2026 Aryan Sharma | Jaipur, India</footer>
+
+<script>
+(function(){
+ var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ // typing roles. EDIT the list below
+ var roles=['DevOps Engineer','Cloud Engineer','Kubernetes Operator','Automation Enthusiast'],ri=0,ci=0,del=false,el=document.getElementById('type');
+ function tick(){var w=roles[ri];el.textContent=w.slice(0,ci);
+  if(reduce){el.textContent=w;return}
+  if(!del&&ci<w.length){ci++;setTimeout(tick,55)}
+  else if(!del){del=true;setTimeout(tick,1000)}
+  else if(ci>0){ci--;setTimeout(tick,25)}
+  else{del=false;ri=(ri+1)%roles.length;setTimeout(tick,300)}}
+ tick();
+ // reveal + charts + counters
+ function count(n){var t=+n.dataset.n,s=n.dataset.s||'',i=0,st=Math.max(1,Math.ceil(t/15));
+  var id=setInterval(function(){i=Math.min(t,i+st);n.textContent=i+s;if(i>=t)clearInterval(id)},25)}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting)return;var t=e.target;t.classList.add('show');io.unobserve(t);
+  t.querySelectorAll('.fillbar').forEach(function(b){b.style.width=b.dataset.v+'%'});
+  t.querySelectorAll('.fg').forEach(function(c){c.style.strokeDashoffset=314-314*c.dataset.v/100});
+  t.querySelectorAll('[data-n]').forEach(count)})},{threshold:.05,rootMargin:'0px 0px -5% 0px'});
+ document.querySelectorAll('.rv,.rl').forEach(function(x,i){x.style.transitionDelay=(i%4)*40+'ms';io.observe(x)});
+ // scroll progress
+ var bar=document.getElementById('bar');
+ addEventListener('scroll',function(){var h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+})();
+</script>
+</body>
+</html>
